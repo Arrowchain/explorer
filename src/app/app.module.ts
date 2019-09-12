@@ -5,11 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ApiService } from './api.service';
+import { ApiService } from './services/api.service';
+import { BlockComponent } from './components/block/block.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BlockComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,

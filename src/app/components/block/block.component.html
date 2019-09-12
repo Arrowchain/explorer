@@ -1,0 +1,23 @@
+<div>
+  <h2>block detail</h2>
+  <ul *ngIf="block !== undefined">
+    <li>hash: {{block.hash}}</li>
+    <li>height: {{block.height}}</li>
+    <li>bits: {{block.bits}}</li>
+    <li>difficulty: {{block.difficulty}}</li>
+    <li>hashMerkleRoot: {{block.hashMerkleRoot}}</li>
+    <li>hashFinalSaplingRoot: {{block.hashFinalSaplingRoot}}</li>
+    <li>nonce: {{block.nonce}}</li>
+    <li>nextBlock: <a routerLink="/block/{{block.nextBlock}}" routerLinkActive="active">{{block.nextBlock}}</a></li>
+    <li>prevBlock: <a routerLink="/block/{{block.prevBlock}}" routerLinkActive="active">{{block.prevBlock}}</a></li>
+    <li>solution: {{block.solution}}</li>
+    <li>timestamp: {{block.timestamp}}</li>
+    <li> transactions: <br/>
+      <ul>
+        <li *ngFor="let tx of block.transactions">
+          <a routerLink="/tx/{{tx.txid}}" routerLinkActive="active">{{tx.txid}}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

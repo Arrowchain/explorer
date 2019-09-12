@@ -1,0 +1,27 @@
+<div>
+  <h2>transaction detail</h2>
+  <ul *ngIf="tx !== undefined">
+    <li>txid: {{tx.txid}}</li>
+    <li>inputs: <br/>
+      <ul>
+        <li *ngFor="let input of tx.txIn">
+          <span *ngIf="input.txid === '0000000000000000000000000000000000000000000000000000000000000000'">
+            coinbase
+          </span>
+          <span *ngIf="input.txid !== '0000000000000000000000000000000000000000000000000000000000000000'">
+            <a routerLink="/tx/{{input.txid}}" routerLinkActive="active">{{input.txid}}</a> output index {{input.outpointIndex}}
+          </span>
+        </li>
+      </ul>
+    </li>
+    <li>outputs: <br/>
+      <ul>
+        <li *ngFor="let output of tx.txOut">
+          {{output.value}} sent to {{output.address}}
+        </li>
+      </ul>
+    </li>
+    <li>shielded inputs: {{tx.shieldedInputs.length}}</li>
+    <li>shielded outputs: {{tx.shieldedOutputs.length}}</li>
+  </ul>
+</div>

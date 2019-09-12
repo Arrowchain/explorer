@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './api.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,12 +9,9 @@ import { ApiService } from './api.service';
 export class AppComponent implements OnInit {
   title = 'explorer';
 
-  constructor(public apiService: ApiService) {}
+  constructor() {}
 
   ngOnInit() {
     console.log('loaded')
-    this.apiService.getBlock('1000').subscribe((response) => {
-      console.log(response)
-    })
   }
 }
